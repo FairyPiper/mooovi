@@ -15,6 +15,14 @@
               <li class="logo" style="float: left">
                 <a href="/">mooovi</a>
               </li>
+              @if (Auth::check())
+              <li class="entry_button" style="float: right">
+                <a href="/logout">サインアウト</a>
+              </li>
+              <li class="entry_button" style="float: right">
+                <a href="/users/{{ Auth::user()->id }}">マイページ</a>
+              </li>
+              @endif
               <li class="entry_button" style="float: right">
                 <a href="/products/search">投稿する</a>
               </li>
@@ -30,7 +38,7 @@
           </h4>
           <ul class="listview listview--condensed text-small">
             {{-- */$i = 1/* --}}
-            @foreach (array() as $product)
+            @foreach ($ranking as $product)
               <li data-cinema-id="346394">
                 <a href="/products/{{ $product->id }}">
                   <div class="box">

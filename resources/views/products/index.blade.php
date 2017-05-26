@@ -18,12 +18,12 @@
                   <li class="col">
                     <a href="/products/{{ $product->id }}"><div class="thumbnail__figure" style="background-image:url({{ $product->image_url }})"></div></a>
                     <div class="thumbnail__caption">
-                      <h3 class="text-xsmall text-overflow" title="タイトル">
-                        タイトル
+                      <h3 class="text-xsmall text-overflow" title="{{ $product->title }}">
+                        {{ $product->title }}
                       </h3>
                       <p class="text-small">
                         <span class="rating-star">
-                          <i class="star-actived rate-[ここに評価を表示]0"></i>
+                          <i class="star-actived rate-{{ $product->review_average() }}0"></i></i>
                         </span>
                       </p>
                     </div>

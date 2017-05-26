@@ -37,6 +37,24 @@
               </ul>
             </div>
           </div>
+          {{ Form::model($review, array('action' => array('ReviewsController@store', $product->id))) }}
+          <!-- <div style="margin: 8px 0">
+            {{ Form::label('nickname', 'ニックネーム', ['style' => 'margin-right:8']) }}
+            {{ Form::text('nickname') }}
+          </div> -->
+          <div style="margin: 8px 0">
+            {{ Form::label('rate', '評価', ['style' =>  'margin-right:8;']) }}
+            {{ Form::selectRange('rate', 1, 10, ['placeholder' => '評価', 'class' => 'searh__query', 'style' => 'text-align: right;']) }}
+          </div>
+          <div style="margin: 8px 0">
+            {{ Form::textarea('review', '', ['placeholder' => 'レビューを書いてね！', 'style' => 'width: 100%;height: 300px;']) }}
+          </div>
+          <div class="row">
+            <div class="col10 push1">
+              {{ Form::submit('投稿する', ['class' => 'btn btn--block']) }}
+            </div>
+          </div>
+          {!! Form::close() !!}
         </article>
       </div>
       <div id="yjSub">
